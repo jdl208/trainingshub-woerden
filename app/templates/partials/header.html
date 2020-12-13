@@ -1,0 +1,18 @@
+<header>
+    <a href="{{ url_for('home')}}">
+        TRAININGSHUB WOERDEN
+    </a>
+    <nav>
+        {% if current_user.is_authenticated %}
+        <a href="">Log uit</a>
+        {% else %}
+        <a href="{{ url_for('auth.register')}}">Registreer</a>
+        <a href="">Log in</a>
+        {% endif %}
+    </nav>
+    <div id="burgermenu">
+        <div class="bar bar--top"></div>
+        <div class="bar bar--middle"></div>
+        <div class="bar bar--bottom"></div>
+    </div>
+</header>

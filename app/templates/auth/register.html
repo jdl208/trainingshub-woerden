@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="input-group">
+        {% if form.email.errors %}
+            {{ form.email(class="error") }}
+            {{ form.email.label(class="error") }}
+            <ul class="errors">
+                {% for error in form.email.errors %}
+                <li><small>{{error}}</small></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{form.email}}
+            {{form.email.label}}
+        {% endif %}
+    </div>
+    <div class="input-group">
+        {% if form.password.errors %}
+            {{form.password(class="error")}}
+            {{form.password.label(class="error")}}
+            <ul class="errors">
+                {% for error in form.password.errors %}
+                <li><small>{{error}}</small></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{form.password}}
+            {{form.password.label}}
+        {% endif %}
+
+    </div>
+    <div class="input-group">
+        {% if form.confirm_password.errors %}
+            {{form.confirm_password(class="error")}}
+            {{form.confirm_password.label(class="error")}}
+            <ul class="errors">
+                {% for error in form.confirm_password.errors %}
+                <li><small>{{error}}</small></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            {{form.confirm_password}}
+            {{form.confirm_password.label}}
+        {% endif %}
+
+    </div>
+    <button type="submit">Registreer account</button>
+</form>
+
+{% endblock content %}
